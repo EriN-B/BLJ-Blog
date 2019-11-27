@@ -28,16 +28,19 @@
               <img src="assets/images/face1.jpg">
             </div>
             <div class="media-content px-3 align-self-center mbr-white py-2">
-                    <p class="mbr-text testimonial-text mbr-fonts-style display-7">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+                    <p class="mbr-text testimonial-text mbr-fonts-style display-7">
+                    <?= $zeile["post_text"] ?>
 </p>
-                    <p class="mbr-author-name pt-4 mb-2 mbr-fonts-style display-7">
-                       Name</p>
                     <p class="mbr-author-desc mbr-fonts-style display-7">
-                       Datum</p>
+                       Verfasst von: <?= $zeile["created_by"]?></p>
+                    <p class="mbr-author-desc mbr-fonts-style display-7">
+                       Verfasst am: <?= $zeile["created_at"] ?>s </p>
             </div>
         </div>
     </div>
 </section>
+
+
 
 </body>
 </html>

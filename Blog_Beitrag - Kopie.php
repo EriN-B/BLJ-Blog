@@ -1,3 +1,41 @@
+<?php
+$user = 'root';
+$password = '';
+
+$pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+]);
+$stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');
+ 
+$a = 1;
+while ($a <= 6){
+$stmt->execute([':id' => $a]);
+$a++;
+
+
+        $ALL = $stmt->fetchAll();    
+
+            foreach($ALL as $zeile) {
+
+                echo '<div class="post">';
+
+                echo '<h2>' . $zeile["post_title"] . '</h2>';
+
+                echo 'gepostet von: ' . $zeile["created_by"] . '<br>am: ' . $zeile["created_at"] .  '<br>';
+                    echo '<div class="post-text">';
+                    echo $zeile["post_text"];
+                    echo '</div>';
+                    
+                echo '</div>';
+                echo '<br>';
+
+            
+            }
+        }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +66,19 @@
               <img src="assets/images/face1.jpg">
             </div>
             <div class="media-content px-3 align-self-center mbr-white py-2">
-                    <p class="mbr-text testimonial-text mbr-fonts-style display-7">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+                    <p class="mbr-text testimonial-text mbr-fonts-style display-7">
+                    <?= $zeile["post_text"] ?>
 </p>
-                    <p class="mbr-author-name pt-4 mb-2 mbr-fonts-style display-7">
-                       Name</p>
                     <p class="mbr-author-desc mbr-fonts-style display-7">
-                       Datum</p>
+                       Verfasst von: <?= $zeile["created_by"]?></p>
+                    <p class="mbr-author-desc mbr-fonts-style display-7">
+                       Verfasst am: <?= $zeile["created_at"] ?>s </p>
             </div>
         </div>
     </div>
 </section>
+
+
 
 </body>
 </html>

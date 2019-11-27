@@ -1,0 +1,92 @@
+.Title{
+    text-align: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+    margin: 0;
+
+}
+
+heading{
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row-start:1 ;
+    grid-row-end: 2;
+
+
+    justify-content: center;
+
+    border: black solid 2px;
+}
+
+main{
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row-start:2;
+    grid-row-end: 3;
+
+
+    border: black solid 2px;
+}
+
+
+.menu-area li a {
+    text-decoration: none;
+  }
+  
+  .menu-area li {
+    list-style-type: none;
+  }
+  
+
+  
+  nav {
+    position: relative;
+    
+    padding: 10px 0;
+    z-index: 1;
+    text-align: center;
+    padding-right: 2%;
+  }
+  
+  .logo {
+    width: 150px;
+    float: left;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 25px;
+    text-align: left;
+    padding-left: 2%;
+    margin: 5px;
+  }
+  
+  .menu-area li {
+    display: inline-block;
+  }
+  
+  .menu-area a {
+    color: gray;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 0 25px;
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .menu-area a:hover {
+    background:wheat;
+    color: #fff;
+  }
+  
+  .menu-area a:hover:after {
+    transform: translateY(-50%) rotate(-35deg);
+  }

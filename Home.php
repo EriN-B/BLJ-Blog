@@ -94,20 +94,39 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
     </div>
 </section>
 
-<body2>
-<br>
-
-</body2>
+<h1 class="Recent-title"> Recent Posts </h1>
 <?php
 $stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');
-$stmt->execute([':id' => 1]);
+ 
+$a = 1;
+while ($a <= 6){
+$stmt->execute([':id' => $a]);
+$a++;
 
-foreach($stmt->fetchAll(3) as $x) {
-    foreach($stmt->fetchAll() as $x) {
-        var_dump($x);
-    }
-}
+
+        $ALL = $stmt->fetchAll();    
+
+            foreach($ALL as $zeile) {
+
+                echo '<div class="post">';
+
+                echo '<h2>' . $zeile["post_title"] . '</h2>';
+
+                echo 'gepostet von: ' . $zeile["created_by"] . '<br>am: ' . $zeile["created_at"] .  '<br>';
+                    echo '<div class="post-text">';
+                    echo $zeile["post_text"];
+                    echo '</div>';
+                    
+                echo '</div>';
+                echo '<br>';
+
+            
+            }
+        }
+        
+
 ?>
+
 <section class="cid-qTkAaeaxX5" id="footer1-2">
 
     
@@ -128,8 +147,8 @@ foreach($stmt->fetchAll(3) as $x) {
                     Address
                 </h5>
                 <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
+                    DownTown 
+                    <br>Manhatten
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
@@ -137,19 +156,8 @@ foreach($stmt->fetchAll(3) as $x) {
                     Contacts
                 </h5>
                 <p class="mbr-text">
-                    Email: support@mobirise.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Links
-                </h5>
-                <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
+                    Email: erin.bachmann@lukb.ch
+                    <br>Phone: +76 761 03 99
                 </p>
             </div>
         </div>
@@ -219,31 +227,5 @@ foreach($stmt->fetchAll(3) as $x) {
   
 </body>
 
-<?php
-$stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');
- 
-$a = 1;
-while ($a <= 6){
-$stmt->execute([':id' => $a]);
-$a++;
 
-
-        $ALL = $stmt->fetchAll();    
-
-            foreach($ALL as $zeile) {
-                echo '<div class="post">';
-                echo '<h2>' . $zeile["post_title"] . '</h2>';
-                echo 'gepostet von: ' . $zeile["created_by"] . '<br>am: ' . $zeile["created_at"] .  '<br>';
-                    echo '<div class="post-text">';
-                    echo $zeile["post_text"];
-                    echo '</div>';
-                echo '</div>';
-                echo '<br>';
-
-            
-            }
-        }
-        
-
-?>
 </html>

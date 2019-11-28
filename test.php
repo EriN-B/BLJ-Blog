@@ -1,43 +1,46 @@
+<?php
+$user = 'root';
+$password = '';
+
+$pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+]);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="test_css.css">
+  <title>Document</title>
 </head>
 <body>
-<section class="engine"><a href="https://mobirise.info/r">bootstrap templates</a></section><section class="testimonials2 cid-rJ21xljJqP" id="testimonials2-h">
-
-    
-
-    
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="mbr-figure pr-lg-5" style="width: 90%;">
-              <img src="assets/images/face1.jpg">
-            </div>
-            <div class="media-content px-3 align-self-center mbr-white py-2">
-                    <p class="mbr-text testimonial-text mbr-fonts-style display-7">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-</p>
-                    <p class="mbr-author-name pt-4 mb-2 mbr-fonts-style display-7">
-                       Name</p>
-                    <p class="mbr-author-desc mbr-fonts-style display-7">
-                       Datum</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+<?php $stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');?>
+ 
+ <?php $a = 1;
+ while ($a <= 2000):
+ 
+ $stmt->execute([':id' => $a]);
+ $a++;
+ 
+ 
+         $ALL = $stmt->fetchAll(); ?>   
+ 
+            <?php foreach($ALL as $zeile): ?>
+<div class="beiträge">
+  <h1 class="title"> <?= $zeile["post_title"];?><br><br>
+  <img class="pic"src= <?= $zeile["post_url"];?>><br>
+  <p class="text"> <?= $zeile["post_text"];?></p>
+  <p class="name"> <?= $zeile["created_by"];?></p>
+  <p class="name"> <?= $zeile["created_at"];?></p>
+  <?php endforeach ?>
+<?php endwhile ?>
+</div>
 </body>
 </html>
+

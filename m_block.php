@@ -1,8 +1,17 @@
+<?php
+$error = [];
 
+if ($name === ''){
+    $errors['Bitte geben Sie einen Namen ein.'];
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
@@ -52,8 +61,8 @@
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="Home.php">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Our Partners<br></a></li><li class="nav-item">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="blogs.php">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Posts<br></a></li><li class="nav-item">
                             <a class="nav-link link text-white display-4" href="Home.php">
                         <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a></li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="m_block".html"><span class="mbri-touch mbr-iconfont mbr-iconfont-btn"></span>Make your own Blog</a></div>
@@ -97,6 +106,10 @@
                             <label for="email-form1-a" class="form-control-label mbr-fonts-style display-7">Titel Ihres Beitrags</label>
                             <input type="text" name="title" data-form-field="title"class="form-control display-7" id="email-form1-a">
                         </div>
+                        <div class="col-md-4  form-group" data-for="url">
+                            <label for="name-form1-a" class="form-control-label mbr-fonts-style display-7">Bild URL</label>
+                            <input type="text" name="url" data-form-field="url"class="form-control display-7" id="name-form1-a">
+                        </div>
                         <div data-for="message" class="col-md-12 form-group">
                             <label for="message-form1-a" class="form-control-label mbr-fonts-style display-7">Ihr Beitrag</label>
                             <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-a"></textarea>
@@ -132,6 +145,7 @@
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $name = $_POST["name1"] ?? '';
     $title = $_POST["title"] ?? '' ;
+    $URL = $_POST["url"]??'';
     $message = $_POST["message"] ?? '';
 
 
@@ -144,8 +158,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 ]);
 
 
-$stmt = $pdo->prepare("INSERT INTO `posts` (created_by,post_title,post_text) VALUES(:by, :title, :text) ");
-$stmt->execute([':by' => $name, ':title' => $title, ':text' => $message]);
+$stmt = $pdo->prepare("INSERT INTO `posts` (created_by,post_title,post_text,post_url) VALUES(:by, :title, :text,:url) ");
+$stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' => $URL]);
 
 }
 ?>

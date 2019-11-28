@@ -13,7 +13,6 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
@@ -64,15 +63,15 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Our Partners<br></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="home.php">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="blogs.php">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Posts<br></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="home.php">
                         <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a></li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="m_block.php"><span class="mbri-touch mbr-iconfont mbr-iconfont-btn"></span>Make your own Blog</a></div>
         </div>
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/w">free html5 templates</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
+<section class="engine"><a href="blogs.php">free html5 templates</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
 
     
 
@@ -93,39 +92,6 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
         </a>
     </div>
 </section>
-
-<h1 class="Recent-title"> Recent Posts </h1>
-<?php
-$stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');
- 
-$a = 1;
-while ($a <= 6){
-$stmt->execute([':id' => $a]);
-$a++;
-
-
-        $ALL = $stmt->fetchAll();    
-
-            foreach($ALL as $zeile) {
-
-                echo '<div class="post">';
-
-                echo '<h2>' . $zeile["post_title"] . '</h2>';
-
-                echo 'gepostet von: ' . $zeile["created_by"] . '<br>am: ' . $zeile["created_at"] .  '<br>';
-                    echo '<div class="post-text">';
-                    echo $zeile["post_text"];
-                    echo '</div>';
-                    
-                echo '</div>';
-                echo '<br>';
-
-            
-            }
-        }
-        
-
-?>
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
 

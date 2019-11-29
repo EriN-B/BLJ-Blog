@@ -10,7 +10,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 ]);
 ?>
 <!DOCTYPE html>
-<html  >
+<html>
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -51,11 +51,11 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
-                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+                    <a href="index.php">
+                         <img src="pictures/icon.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">Your Blog</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.php">Your Blog</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -101,9 +101,9 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 <br>
 <p class="text"> <?= $zeile["post_text"];?></p>
 <br>
-<p class="name"><?= $zeile["created_by"];?></p>
+<p class="name">Erstellt von: <?= $zeile["created_by"];?></p>
 <br>
-<p class="datum"><?= $zeile["created_at"];?></p>
+<p class="datum">Erstellt am: <?= $zeile["created_at"];?></p>
 <br>
 </div>
 <?php endforeach ?>

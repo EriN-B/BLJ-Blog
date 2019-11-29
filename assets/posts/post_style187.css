@@ -2,16 +2,44 @@
     justify-content: center;
     text-align: center;
     border-bottom: 5px solid black;
+    margin-left: 300px;
+    margin-right: 300px;
     margin-bottom: 20px ;
 }
 
 .bild{
 
     align-content: center;
-    max-width: 1000px;
+    max-width: 500px;
 	height: auto;
 
 
 }
 
 
+.body{
+    background-color: gray;
+}
+
+
+.titel{
+    border-bottom: 5px solid black;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-bottom: 5px;
+    
+}
+
+.name{
+    font-size: large;
+    font-weight: bold;
+}
+
+.datum{
+    font-size: large;
+    font-weight: bold;
+}
+
+.text{
+    text-align: center;
+}

@@ -92,11 +92,11 @@ $user2 = 'd041e_gibucher';
          $ALL = $stmt->fetchAll(); ?>   
  
             <?php foreach($ALL as $zeile): 
-            echo "<a href='http://$zeile[Ip]' class='andereblogs'>$zeile[vorname]</a>";
+            echo "<ul<li><a href='http://$zeile[Ip]' class='andereblogs'>$zeile[vorname]<br></a></li></ul><br>";
                 ?>
 
 
-
+ 
 <?php endforeach ?>
 <?php endwhile ?>
 </div>

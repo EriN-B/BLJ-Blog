@@ -40,11 +40,11 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="blog.php">
-                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+                    <a href="index.php">
+                         <img src="pictures/icon.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="blog.php">Your Blog</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.php">Your Blog</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -74,7 +74,7 @@
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">the world's leading blog page</h1>
                 
-                <p class="mbr-text pb-3 mbr-fonts-style display-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et "luca: Lorem Ipsum good ned"  dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="posts.php">Alle Posts</a>
                     <a class="btn btn-md btn-white-outline display-4" href="our_partners.php">Our Partners</a></div>
             </div>
@@ -103,8 +103,8 @@
                     Address
                 </h5>
                 <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
+                    Jaiks
+                    <br>187,  99999
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
@@ -112,9 +112,8 @@
                     Contacts
                 </h5>
                 <p class="mbr-text">
-                    Email: support@mobirise.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
+                    Email: support@erin.com
+                    <br>Phone: 076 761 xx xx
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
@@ -122,9 +121,8 @@
                     Links
                 </h5>
                 <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
+                    <a class="text-primary" href="https://www.instagram.com/bachmannerin/">Instagram</a><br>
+                    <p> ↑ Sry wege Privat (﻿ ͡° ͜ʖ ͡°) </p>
                 </p>
             </div>
         </div>
@@ -137,7 +135,7 @@
             <div class="media-container-row mbr-white">
                 <div class="col-sm-6 copyright">
                     <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2017 Mobirise - All Rights Reserved
+                        © Copyright 2030 Erin Bachmann - All Rights Reserved
                     </p>
                 </div>
                 <div class="col-md-6">

@@ -11,7 +11,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 ?>
 
 <?php
-
+$thanks = false;
 $formSent = false;
 $namesent = false;
 $titlesent = false;
@@ -25,6 +25,7 @@ $message =htmlentities($_POST["message"] ?? '');
 
 
 $errors  = [];
+$thanks = false;
 $formSent  = false;
 $namesent = false;
 $titlesent = false;
@@ -66,6 +67,7 @@ PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 if ($formSent===false){
 $stmt = $pdo->prepare("INSERT INTO `posts` (created_by,post_title,post_text,post_url) VALUES(:by, :title, :text,:url) ");
 $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' => $URL]);
+$thanks = true;
 }
 }
 ?>
@@ -112,11 +114,11 @@ $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' 
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="blog.php">
-                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+                    <a href="index.php">
+                         <img src="pictures/icon.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="blog.php">Your Blog</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.php">Your Blog</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -155,6 +157,7 @@ $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' 
 <div class="wrapper">
 <?php
 
+
 if ($namesent===true){
     echo "Bitte geben Sie einen Namen ein.<br>";
 }
@@ -169,6 +172,18 @@ if ($urlsent===true){
 
 if ($messagesent===true){
     echo "Bitte geben Sie eine Nachricht ein.<br><br><br><br>";
+}
+
+?>
+
+</div>
+
+<div class="true">
+
+<?php
+
+if ($thanks===true){
+    echo "Danke für deinen Eintrag.<br><br><br><br>";
 }
 
 ?>

@@ -8,3 +8,14 @@
     color: red;
 }
 
+
+.true{
+    text-align: center;
+    margin-top: 2px;
+    width: 80%;
+    max-width: 550px;
+    margin: auto;
+    font-size: medium;
+    color: green;
+}
+

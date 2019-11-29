@@ -74,6 +74,12 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
     </nav>
 </section>
 
+<br>
+<br>
+<br>
+<br>
+
+
 <?php $stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');?>
  
  <?php $a = 1;

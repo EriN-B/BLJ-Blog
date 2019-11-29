@@ -9,6 +9,67 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
   
 ]);
 ?>
+
+<?php
+
+$formSent = false;
+$namesent = false;
+$titlesent = false;
+$urlsent = false;
+$messagesent= false;
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$name = htmlentities( $_POST["name1"] ?? '');
+$title = htmlentities($_POST["title"] ?? '' );
+$URL = ($_POST["url"]??'');
+$message =htmlentities($_POST["message"] ?? '');
+
+
+$errors  = [];
+$formSent  = false;
+$namesent = false;
+$titlesent = false;
+$urlsent = false;
+$messagesent= false;
+
+if($name === ''){
+    $errors[]='Bitte geben Sie einen Namen ein.';
+    $formSent = true;
+    $namesent = true;
+}
+
+if($title===''){
+    $errors[]='Bitte geben Sie einen Titel ein. ';
+    $formSent = true;
+    $titlesent = true;
+}
+
+if($URL===''){
+    $errors='Geben Sie eine URL ein.';
+    $formSent = true;
+    $urlsent = true;
+}
+
+if($message===''){
+    $errors='Geben Sie eine Nachricht ein.';
+    $formSent = true;
+    $messagesent= true;
+}
+
+$user = 'root';
+$password = '';
+
+$pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
+PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+]);
+
+if ($formSent===false){
+$stmt = $pdo->prepare("INSERT INTO `posts` (created_by,post_title,post_text,post_url) VALUES(:by, :title, :text,:url) ");
+$stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' => $URL]);
+}
+}
+?>
+
 <!DOCTYPE html>
 <html  >
 <head>
@@ -76,9 +137,6 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 <section class="engine"><a href="">web creation software</a></section><section class="mbr-section form1 cid-rJ8gireKJO" id="form1-14">
 
     
-
-    
-    
     
 <div class="container">
     <div class="row justify-content-center">
@@ -92,10 +150,37 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
         </div>
     </div>
 </div>
+
+<div class="Errors">
+<?php
+
+if ($namesent===true){
+    echo "Bitte geben Sie einen Namen ein.";
+}
+
+if ($titlesent=== true){
+    echo "Bitte geben Sie einen Titel ein.";
+}
+
+if ($urlsent===true){
+    echo "Bitte geben Sie eine URL ein.";
+}
+
+if ($messagesent===true){
+    echo "Bitte geben Sie eine Nachricht ein.";
+}
+
+?>
+
+</div>
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="media-container-column col-lg-8" data-form-type="formoid">
             <!---Formbuilder Form--->
+
+
             <form action="blog.php" method="POST">
                 <div class="row">
                     <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Vielen Dank! Ihre Nachricht wurde verschickt!</div>
@@ -120,7 +205,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
                         <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-a"></textarea>
                     </div>
                     <div class="col-md-12 input-group-btn align-center">
-                        <button type="submit" href="test.php"class="btn btn-primary btn-form display-4">Veröffentlichen</button>
+                        <button type="submit" href="landing_page.php"class="btn btn-primary btn-form display-4">Veröffentlichen</button>
 
                     </div>
                 </div>
@@ -146,25 +231,4 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 </html>
 
 
-<?php
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-$name = htmlentities( $_POST["name1"] ?? '');
-$title = htmlentities($_POST["title"] ?? '' );
-$URL = htmlentities($_POST["url"]??'');
-$message =htmlentities($_POST["message"] ?? '');
 
-
-$user = 'root';
-$password = '';
-
-$pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
-PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-]);
-
-
-$stmt = $pdo->prepare("INSERT INTO `posts` (created_by,post_title,post_text,post_url) VALUES(:by, :title, :text,:url) ");
-$stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' => $URL]);
-
-}
-?>

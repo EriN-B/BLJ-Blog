@@ -5,10 +5,10 @@ $password = '';
 $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+
+  
 ]);
-
 ?>
-
 <!DOCTYPE html>
 <html  >
 <head>
@@ -17,10 +17,11 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/linux-2025130-960-720-184x223.png" type="image/x-icon">
-  <meta name="description" content="Web Page Generator Description">
+  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+  <meta name="description" content="Website Creator Description">
   
-  <title>Blogs</title>
+  <title>Make Your Own Blog</title>
+  <link rel="stylesheet" href="assets/posts/post_style187.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -34,7 +35,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
   
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-c">
+  <section class="menu cid-rJ8cpPvY2x" once="menu" id="menu1-13">
 
     
 
@@ -50,40 +51,57 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.com">
-                         <img src="assets/images/linux-2025130-960-720-184x223.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                    <a href="https://mobirise.co">
+                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap">
-                    <a class="navbar-caption text-white display-4" href="https://mobirise.com">
-                        MOBIRISE
-                    </a>
-                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">Your Blog</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="index.html">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Our Partners<br></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="home.php">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="m_block.php"><span class="mbri-touch mbr-iconfont mbr-iconfont-btn"></span>Make your own Blog</a></div>
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="posts.php">
+                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>Alle Posts
+                    </a>
+                </li><li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="index.php">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a>
+                </li></ul>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="blog.php">
+                    <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
+                    Make yor own Blog</a></div>
         </div>
     </nav>
 </section>
-<?php
-require 'blog_beiträge_test.php'
-?>
 
+<?php $stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');?>
+ 
+ <?php $a = 1;
+ while ($a <= 2000):
+ 
+ $stmt->execute([':id' => $a]);
+ $a++;
+ 
+ 
+         $ALL = $stmt->fetchAll(); ?>   
+ 
+            <?php foreach($ALL as $zeile): ?>
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/nav-dropdown.js"></script>
-  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  
+<div class= jeje>
+<h1 class="titel"><?= $zeile["post_title"]?></h1><br>
+
+<img class="bild" src="<?= $zeile["post_url"];?>">
+<br>
+<br>
+<p class="text"> <?= $zeile["post_text"];?></p>
+<br>
+<p class="name"><?= $zeile["created_by"];?></p>
+<br>
+<p class="datum"><?= $zeile["created_at"];?></p>
+<br>
+</div>
+<?php endforeach ?>
+<?php endwhile ?>
+
 </body>
-</html>
+</html>  

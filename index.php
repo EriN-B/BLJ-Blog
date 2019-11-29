@@ -1,23 +1,12 @@
-<?php
-$user = 'root';
-$password = '';
-
-$pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-]);
-
-?>
-
-
 <!DOCTYPE html>
 <html  >
 <head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/linux-2025130-960-720-184x223.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
   <meta name="description" content="">
   
   <title>Home</title>
@@ -35,7 +24,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
   
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
+  <section class="menu cid-rJ8cpPvY2x" once="menu" id="menu1-10">
 
     
 
@@ -51,27 +40,30 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.com">
-                         <img src="assets/images/linux-2025130-960-720-184x223.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                    <a href="blog.php">
+                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap">
-                    <a class="navbar-caption text-white display-4" href="https://mobirise.com">
-                        Your Blog
-                    </a>
-                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="blog.php">Your Blog</a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-white display-4" href="blogs.php">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Posts<br></a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="home.php">
-                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="m_block.php"><span class="mbri-touch mbr-iconfont mbr-iconfont-btn"></span>Make your own Blog</a></div>
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="posts.php">
+                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>Alle Posts
+                    </a>
+                </li><li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="index.php">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a>
+                </li></ul>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="blog.php">
+                    <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
+                    Make yor own Blog</a></div>
         </div>
     </nav>
 </section>
 
-<section class="engine"><a href="blogs.php">free html5 templates</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
+<section class="engine"><a href="">free site maker</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
 
     
 
@@ -83,14 +75,12 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">the world's leading blog page</h1>
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="https://mobirise.com">Alle Posts</a>
+                    <a class="btn btn-md btn-white-outline display-4" href="https://mobirise.com">Our Partners</a></div>
             </div>
         </div>
     </div>
-    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
-        <a href="#next">
-            <i class="mbri-down mbr-iconfont"></i>
-        </a>
-    </div>
+    
 </section>
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
@@ -113,8 +103,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
                     Address
                 </h5>
                 <p class="mbr-text">
-                    DownTown 
-                    <br>Manhatten
+                    1234 Street Name
+                    <br>City, AA 99999
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
@@ -122,8 +112,19 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
                     Contacts
                 </h5>
                 <p class="mbr-text">
-                    Email: erin.bachmann@lukb.ch
-                    <br>Phone: +76 761 03 99
+                    Email: support@mobirise.com
+                    <br>Phone: +1 (0) 000 0000 001
+                    <br>Fax: +1 (0) 000 0000 002
+                </p>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">
+                    Links
+                </h5>
+                <p class="mbr-text">
+                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
+                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
+                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
                 </p>
             </div>
         </div>
@@ -192,6 +193,4 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
   
   
 </body>
-
-
 </html>

@@ -82,6 +82,7 @@ $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' 
   <meta name="description" content="Website Creator Description">
   
   <title>Make Your Own Blog</title>
+  <link rel="stylesheet" href="assets/blog/error_style.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -134,7 +135,7 @@ $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' 
     </nav>
 </section>
 
-<section class="engine"><a href="">web creation software</a></section><section class="mbr-section form1 cid-rJ8gireKJO" id="form1-14">
+<section class="engine"><a href="">web creation software</a></section><section class="mbr-section fo rm1 cid-rJ8gireKJO" id="form1-14">
 
     
     
@@ -151,23 +152,23 @@ $stmt->execute([':by' => $name, ':title' => $title, ':text' => $message, ':url' 
     </div>
 </div>
 
-<div class="Errors">
+<div class="wrapper">
 <?php
 
 if ($namesent===true){
-    echo "Bitte geben Sie einen Namen ein.";
+    echo "Bitte geben Sie einen Namen ein.<br>";
 }
 
 if ($titlesent=== true){
-    echo "Bitte geben Sie einen Titel ein.";
+    echo "Bitte geben Sie einen Titel ein.<br>";
 }
 
 if ($urlsent===true){
-    echo "Bitte geben Sie eine URL ein.";
+    echo "Bitte geben Sie eine URL ein.<br>";
 }
 
 if ($messagesent===true){
-    echo "Bitte geben Sie eine Nachricht ein.";
+    echo "Bitte geben Sie eine Nachricht ein.<br><br><br><br>";
 }
 
 ?>

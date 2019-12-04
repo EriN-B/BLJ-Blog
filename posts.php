@@ -80,34 +80,29 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog', $user, $password, [
 <br>
 
 
-<?php $stmt = $pdo->prepare('SELECT * FROM `posts` WHERE id = :id');?>
- 
- <?php $a = 1;
- while ($a <= 2000):
- 
- $stmt->execute([':id' => $a]);
- $a++;
- 
- 
-         $ALL = $stmt->fetchAll(); ?>   
- 
-            <?php foreach($ALL as $zeile): ?>
+<?php 
 
-<div class= jeje>
-<h1 class="titel"><?= $zeile["post_title"]?></h1><br>
+$stmt = $pdo->query('SELECT * FROM `posts` ORDER BY id DESC limit 2000');
+$all = $stmt->fetchAll(); ?>
+ 
+<?php foreach($all as $zeile): ?>
 
-<img class="bild" src="<?= $zeile["post_url"];?>">
-<br>
-<br>
-<p class="text"> <?= $zeile["post_text"];?></p>
-<br>
-<p class="name">Erstellt von: <?= $zeile["created_by"];?></p>
-<br>
-<p class="datum">Erstellt am: <?= $zeile["created_at"];?></p>
-<br>
-</div>
+    <div class= jeje>
+    <h1 class="titel"><?= $zeile["post_title"]?></h1><br>
+
+    <img class="bild" src="<?= $zeile["post_url"];?>">
+    <br>
+    <br>
+    <div class="message">
+    <p class="text"> <?= $zeile["post_text"];?></p>
+    </div>
+    <br>
+    <p class="name">Erstellt von: <?= $zeile["created_by"];?></p>
+    <br>
+    <p class="datum">Erstellt am: <?= $zeile["created_at"];?></p>
+    <br>
+    </div>
 <?php endforeach ?>
-<?php endwhile ?>
 
 </body>
 </html>  

@@ -76,7 +76,7 @@ $user2 = 'd041e_gibucher';
 <br>
 <br>
 <br>
-<h1 class="partners_title"> Our Partners </h1>
+<h1 class="partners_title"> The other Blogs </h1>
 <br>
 <div class="Links">
 

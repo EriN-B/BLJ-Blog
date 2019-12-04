@@ -15,4 +15,22 @@
     justify-content: center;
 }
 
+.container{
+    background-color: gray;
+}
  
+
+
+footer{
+    background-color:#696969;
+}
+
+.title_partners{
+    color: white;
+    text-align: center;
+}
+
+.names{
+    display: flex;
+    justify-content: center;
+}
